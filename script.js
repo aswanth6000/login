@@ -18,16 +18,6 @@ app.use(session({
 
 const PORT = process.env.PORT || 8000;
 
-const isLoggedIn = (req, res, next)=>{
-    if(req.session.userDetails){
-        res.locals.userLoggedIn = true;
-    }else{
-        res.locals.userLoggedIn = false;
-    }
-    next()
-}
-app.use(isLoggedIn);
-
 app.get("/",(req,res)=>{
     res.render("login",{data : data})
 })
